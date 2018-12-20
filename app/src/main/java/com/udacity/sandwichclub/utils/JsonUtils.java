@@ -13,6 +13,7 @@ import java.util.Iterator;
 
 public class JsonUtils {
     private static final String TAG = JsonUtils.class.getSimpleName();
+    private static final String EMPTY = "No Value";
     private static final String NAME = "name";
     private static final String MAIN_NAME = "mainName";
     private static final String ALSO_KNOWN_AS = "alsoKnownAs";
@@ -38,20 +39,20 @@ public class JsonUtils {
             switch (keys.next()) {
                 case NAME:
                     final JSONObject name = jsonObject.getJSONObject(NAME);
-                    final String mainName = name.getString(MAIN_NAME);
+                    final String mainName = name.optString(MAIN_NAME, EMPTY);
                     sandwich.setMainName(mainName);
                     elligableArray(sandwich, name, ALSO_KNOWN_AS);
                     break;
                 case PLACE_OF_ORIGIN:
-                    final String placeOfOrigin = jsonObject.getString(PLACE_OF_ORIGIN);
+                    final String placeOfOrigin = jsonObject.optString(PLACE_OF_ORIGIN, EMPTY);
                     sandwich.setPlaceOfOrigin(placeOfOrigin);
                     break;
                 case DESCRIPTION:
-                    final String description = jsonObject.getString(DESCRIPTION);
+                    final String description = jsonObject.optString(DESCRIPTION, EMPTY);
                     sandwich.setDescription(description);
                     break;
                 case IMAGE:
-                    final String image = jsonObject.getString(IMAGE);
+                    final String image = jsonObject.optString(IMAGE, EMPTY);
                     sandwich.setImage(image);
                     break;
                 case INGREDIENTS:
@@ -74,10 +75,10 @@ public class JsonUtils {
 
     private static void populateElementAsArray(final JSONArray jsonArray,
                                                final Sandwich sandwich,
-                                               final String arrayKey) throws JSONException {
+                                               final String arrayKey) {
         String[] tempArray = new String[jsonArray.length()];
         for (int i = 0; i < jsonArray.length(); i++) {
-            tempArray[i] = jsonArray.getString(i);
+            tempArray[i] = jsonArray.optString(i, EMPTY);
         }
         switch (arrayKey) {
             case ALSO_KNOWN_AS:

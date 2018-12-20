@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="sandwiches_listview" type="id"/>
+    <item name="image_iv" type="id"/>
+    <item name="origin_label" type="id"/>
+    <item name="origin_tv" type="id"/>
+    <item name="also_known_label" type="id"/>
+    <item name="also_known_tv" type="id"/>
+    <item name="ingredients_label" type="id"/>
+    <item name="ingredients_tv" type="id"/>
+    <item name="description_label" type="id"/>
+    <item name="description_tv" type="id"/>
+</resources>
