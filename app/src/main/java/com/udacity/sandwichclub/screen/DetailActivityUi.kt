@@ -1,7 +1,10 @@
 package com.udacity.sandwichclub.screen
 
+import android.widget.FrameLayout
 import android.widget.ImageView.ScaleType.CENTER_CROP
 import android.widget.RelativeLayout
+import android.widget.ScrollView
+import com.squareup.picasso.Picasso.with
 import com.udacity.sandwichclub.DetailActivity
 import com.udacity.sandwichclub.R
 import com.udacity.sandwichclub.R.style.DetailLabels
@@ -11,7 +14,7 @@ import org.jetbrains.anko.*
 class DetailActivityUi : AnkoComponent<DetailActivity> {
     override fun createView(ui: AnkoContext<DetailActivity>) = with(ui) {
         scrollView {
-            layoutParams = RelativeLayout.LayoutParams(matchParent, wrapContent)
+            layoutParams = FrameLayout.LayoutParams(matchParent, wrapContent)
             relativeLayout {
                 imageView {
                     id = R.id.image_iv

@@ -15,8 +15,6 @@ import com.udacity.sandwichclub.utils.JsonUtils;
 
 import org.jetbrains.anko.AnkoContextKt;
 
-import static android.view.View.*;
-
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
